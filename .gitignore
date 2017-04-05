@@ -1,0 +1,5 @@
+/virtualenv
+/.idea
+/*test*tmp_dir
+__pycache__
+/db.sqlite3
