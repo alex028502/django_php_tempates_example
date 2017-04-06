@@ -9,6 +9,6 @@ check-for-chromedriver:
 check-for-php:
 	which php
 virtualenv: requirements.txt
-	virtualenv -p python3 $@
+	ls $@ || virtualenv -p python3 $@
 	virtualenv/bin/pip install -r $<
 	touch $@
