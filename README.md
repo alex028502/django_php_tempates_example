@@ -48,11 +48,18 @@ I wonder if copying Symfony's patterns would make sense.
 
 ### So how do I run it?
 
+There is a make file to make it easy.  This will install the virtualenv
+if necessary and run the migrations.  You don't have to activate the
+virtualenv.
+
+to run the test server:
 ````bash
-php --version # make sure you have php 5 installed (not the built in ios one)
-make install #install virtualenv with python 3
-source virtualenv/bin/activate #activate virtualenv
-./manage.py migrate
-./manage.py runserver
-# go to http://localhost:8000/ and try leaving a comment
+#make sure you have php installed
+make runserver
+````
+
+to run the tests:
+````bash
+#make sure you have chromedriver and php installed
+make test
 ````
