@@ -2,11 +2,13 @@ import os
 import subprocess
 import json
 
+
 def render(template, payload):
 
-    assert os.path.isfile(template), "template file %s does not exist" % template
+    assert os.path.isfile(template),\
+        "template file %s does not exist" % template
 
-    #thanks http://stackoverflow.com/a/5655409/5203563
+    # thanks http://stackoverflow.com/a/5655409/5203563
     env = os.environ.copy()
     env['REQUEST_METHOD'] = "POST"
     env['SCRIPT_FILENAME'] = template

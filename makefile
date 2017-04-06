@@ -1,6 +1,7 @@
 runserver: virtualenv check-for-php migrate
 	$</bin/python ./manage.py $@
 test: virtualenv check-for-php check-for-chromedriver
+	./pep8.sh
 	$</bin/python ./manage.py $@ --failfast
 migrate: virtualenv
 	$</bin/python ./manage.py $@
