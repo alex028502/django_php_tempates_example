@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <?php foreach($ctx->comments as $comment): ?>
-            <pre><?php echo $comment->comment ?></pre>
+            <pre><?php echo $comment->message ?></pre>
             - <?php echo $comment->name ?><br />
             <br />
         <?php endforeach; ?>

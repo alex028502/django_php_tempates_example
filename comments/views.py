@@ -16,7 +16,7 @@ def index(request):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            Comment(comment=form.cleaned_data['message'], name=form.cleaned_data['name']).save()
+            Comment(message=form.cleaned_data['message'], name=form.cleaned_data['name']).save()
             return HttpResponseRedirect(request.get_full_path())
     else:
         form = CommentForm()

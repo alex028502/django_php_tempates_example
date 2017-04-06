@@ -8,8 +8,8 @@ class TestComments(TestCase):
         self.c = Client()
 
     def test_items_in_list(self):
-        Comment(name="Mikey", comment="Good morning!").save()
-        Comment(name="Billy", comment="Good morning to you too!").save()
+        Comment(name="Mikey", message="Good morning!").save()
+        Comment(name="Billy", message="Good morning to you too!").save()
 
         response = self.c.get('/')
 
