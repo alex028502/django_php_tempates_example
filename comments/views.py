@@ -3,13 +3,14 @@ import os
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from django.template.backends.utils import csrf_input
+from django.templatetags.static import static
 
 from comments.models import Comment
 from php_template import render
 
 class CommentForm(forms.Form):
-    name = forms.CharField(label='Your name', max_length=100)
     message = forms.CharField(widget=forms.Textarea)
+    name = forms.CharField(label='Your name', max_length=100)
 
 def index(request):
     if request.method == "POST":
@@ -23,8 +24,9 @@ def index(request):
     comments = list(Comment.objects.all().values())
 
     csrf_token = csrf_input(request)
+    css_path = static("comments/style.css")
 
     return HttpResponse(render(
         template=os.path.join(os.path.dirname(__file__), 'templates/comments/comments.php'),
-        payload={"comments": comments, "form": str(form), "csrf_token": csrf_token}
+        payload={"comments": comments, "form": form.as_table(), "csrf_token": csrf_token, "css_path": css_path}
     ))
