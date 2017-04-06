@@ -21,12 +21,12 @@ def index(request):
     else:
         form = CommentForm()
 
-    comments = list(Comment.objects.all().values())
-
-    csrf_token = csrf_input(request)
-    css_path = static("comments/style.css")
-
     return HttpResponse(render(
         template=os.path.join(os.path.dirname(__file__), 'templates/comments/comments.php'),
-        payload={"comments": comments, "form": form.as_table(), "csrf_token": csrf_token, "css_path": css_path}
+        payload={
+            "comments": list(Comment.objects.all().values()),
+            "form": form.as_table(),
+            "csrf_token": csrf_input(request),
+            "css_path": static("comments/style.css")
+        }
     ))
