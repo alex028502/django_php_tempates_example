@@ -22,7 +22,7 @@ def index(request):
         form = CommentForm()
 
     return HttpResponse(render(
-        template=os.path.join(os.path.dirname(__file__), 'templates/comments/comments.php'),
+        template="%s/templates/comments/comments.php" % os.path.dirname(__file__),
         payload={
             "comments": list(Comment.objects.all().values()),
             "form": form.as_table(),
