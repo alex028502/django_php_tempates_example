@@ -45,7 +45,7 @@ I wonder if copying Symfony's patterns would make sense.
 * <a href="comments/views.py">get static file path without django templates</a>
 * <a href="php_template.py">simulate cgi for php-cgi</a>
 * <a href="comments/templates/comments/comments.php">a php template used in django</a>
-* <a href="pep8.sh">script that checks format of non git ignored python files</a>
+* <a href="files.sh">script that checks format of non git ignored python files</a>
 
 ### So how do I run it?
 
