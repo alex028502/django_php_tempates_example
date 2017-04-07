@@ -3,4 +3,4 @@ machine:
     version: 3.4.3
 test:
   post:
-    - ./files.sh | xargs pep8
+    - ./build/files.sh | xargs pep8
