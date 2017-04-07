@@ -19,5 +19,5 @@ def render(template, payload):
         ["php-cgi", "-dalways_populate_raw_post_data=-1"],
         input=json.dumps(payload).encode('utf-8'),
         env=env
-    ).decode("utf-8").split("\n")[3:]
-    return "\n".join(output)
+    ).decode("utf-8").split("\n")[2:]
+    return "\n".join(output).lstrip()

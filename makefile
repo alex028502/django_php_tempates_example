@@ -8,7 +8,7 @@ migrate: virtualenv
 check-for-chromedriver:
 	which chromedriver
 check-for-php:
-	which php
+	./build/php-7-check.sh
 virtualenv: requirements.txt
 	ls $@ || virtualenv -p python3 $@
 	virtualenv/bin/pip install -r $<

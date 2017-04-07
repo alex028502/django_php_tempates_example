@@ -1,6 +1,10 @@
 machine:
   python:
     version: 3.4.3
+  php:
+    version: 7.1.0
 test:
+  pre:
+    - ./build/php-7-check.sh
   post:
     - ./build/files.sh | xargs pep8
