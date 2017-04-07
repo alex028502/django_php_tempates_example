@@ -15,16 +15,9 @@ def render(template, payload):
     env['REDIRECT_STATUS'] = "CGI"
     env['CONTENT_TYPE'] = "application/www-form-urlencoded"
     env['CONTENT_LENGTH'] = "%s" % len(json.dumps(payload))
-    try:
-        output = subprocess.check_output(
-            ["php-cgi", "-dalways_populate_raw_post_data=-1"],
-            input=json.dumps(payload).encode('utf-8'),
-            env=env
-        ).decode("utf-8").split("\n")[3:]
-    except subprocess.CalledProcessError as exc:
-        print("env is...")
-        print(env)
-        print("php output is...")
-        print(exc.output)
-        raise
+    output = subprocess.check_output(
+        ["php-cgi", "-dalways_populate_raw_post_data=-1"],
+        input=json.dumps(payload).encode('utf-8'),
+        env=env
+    ).decode("utf-8").split("\n")[3:]
     return "\n".join(output)
